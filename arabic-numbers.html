@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Arab raqamlari 1–10 — رحلة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#b8912f; --gold-soft:#e8dcb8; --ink:#1b4332; --ink-deep:#0f2d20;
+  --cream:#f6f1e4; --paper:#fbf8ef; --line:#d8c99a;
+  --good:#3f7d4f; --bad:#b5482f;
+  --fg:var(--ink-deep); --bg:var(--cream); --card:var(--paper);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){ --fg:#efe6cf; --bg:#12211a; --card:#16281f; --paper:#16281f; --line:#2c4536; }
+}
+:root[data-theme="dark"]{ --fg:#efe6cf; --bg:#12211a; --card:#16281f; --paper:#16281f; --line:#2c4536; }
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;line-height:1.5;min-height:100%;}
+.arabic{font-family:'Amiri','Traditional Arabic',serif;direction:rtl;}
+header{padding:2rem 1.25rem 1rem;text-align:center;border-bottom:1px solid var(--line);}
+header h1{font-size:1.9rem;font-weight:600;margin:0 0 .2rem;color:var(--ink);}
+[data-theme="dark"] header h1, @media (prefers-color-scheme:dark){header h1{color:var(--gold-soft);}}
+header p{margin:0;opacity:.75;font-size:1.05rem;}
+nav{display:flex;justify-content:center;gap:.4rem;flex-wrap:wrap;padding:1rem;}
+nav button{font:inherit;font-size:1rem;padding:.5rem 1.1rem;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;transition:background .15s,color .15s;}
+nav button.active{background:var(--ink);color:var(--gold-soft);border-color:var(--ink);}
+main{max-width:880px;margin:0 auto;padding:0 1.25rem 3rem;}
+section{display:none;}
+section.active{display:block;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.9rem;margin-top:1rem;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:1rem;text-align:center;}
+.card .num{font-size:.95rem;color:var(--gold);font-weight:600;}
+.card .ar{font-size:2.1rem;margin:.3rem 0;}
+.card .translit{opacity:.75;font-style:italic;}
+.card .uz{margin-top:.3rem;font-weight:600;}
+.speak{margin-top:.6rem;border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:8px;padding:.35rem .8rem;font:inherit;cursor:pointer;}
+.speak:active{background:var(--ink);color:var(--gold-soft);}
+.intro{margin-top:.5rem;opacity:.85;max-width:70ch;}
+.root-row{display:flex;align-items:center;gap:.8rem;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:.8rem 1rem;margin-bottom:.6rem;flex-wrap:wrap;}
+.root-row .pair{display:flex;gap:.6rem;align-items:baseline;}
+.root-row .ar{font-size:1.6rem;}
+.root-hl{color:var(--gold);font-weight:700;}
+.root-row .meaning{opacity:.7;font-size:.95rem;}
+.irregular{opacity:.7;font-size:.95rem;margin-top:.6rem;}
+#quizArea{margin-top:1rem;}
+.qbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:1.4rem;text-align:center;}
+.qprompt .ar{font-size:2.6rem;display:block;margin-bottom:.3rem;}
+.qmeta{opacity:.65;font-size:.95rem;margin-bottom:.9rem;}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.8rem;}
+.opt{font:inherit;font-size:1.05rem;padding:.7rem;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--fg);cursor:pointer;}
+.opt.correct{background:var(--good);color:#fff;border-color:var(--good);}
+.opt.wrong{background:var(--bad);color:#fff;border-color:var(--bad);}
+.opt[disabled]{cursor:default;}
+.progress{opacity:.7;font-size:.9rem;margin-top:1rem;}
+.result h2{color:var(--ink);}
+[data-theme="dark"] .result h2,@media (prefers-color-scheme:dark){.result h2{color:var(--gold-soft);}}
+.result .uzline{font-weight:600;margin-top:.4rem;}
+.restart{margin-top:1rem;border:1px solid var(--ink);background:var(--ink);color:var(--gold-soft);border-radius:8px;padding:.6rem 1.4rem;font:inherit;cursor:pointer;}
+footer{text-align:center;opacity:.5;font-size:.85rem;padding-bottom:1.5rem;}
+@media (max-width:420px){.opts{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header>
+<h1 class="arabic">١ – ١٠ &nbsp;رحلة</h1>
+<p>Arab tilida sonlar: 1–10 va tartib sonlar — talaffuz bilan</p>
+</header>
+<nav>
+<button data-tab="numbers" class="active">Sonlar</button>
+<button data-tab="ordinals">Tartib sonlar</button>
+<button data-tab="connect">Bog'lanish</button>
+<button data-tab="quiz">O'yin</button>
+</nav>
+<main>
+
+<section id="numbers" class="active">
+<p class="intro">Har bir kartani bosing — o'qilishini eshitasiz. Arabcha yozuv, talaffuz va o'zbekcha ma'nosi birga.</p>
+<div class="grid" id="numGrid"></div>
+</section>
+
+<section id="ordinals">
+<p class="intro">Tartib sonlar — "birinchi", "ikkinchi"... Arab tilida ular otlarga o'xshab, jins bo'yicha o'zgaradi; bu yerda erkak jinsi (masculine) shakli berilgan.</p>
+<div class="grid" id="ordGrid"></div>
+</section>
+
+<section id="connect">
+<p class="intro">Qiziq bog'lanish: 3-dan 10-gacha tartib son, sonning o'zidan xuddi shu <b>uch undosh harf (ildiz)</b>ni oladi — faqat qolipi o'zgaradi. 1- va 2- esa butunlay boshqa so'zlardan yasaladi.</p>
+<div id="rootList"></div>
+<p class="irregular">١ (bir) → <span class="arabic">الأول</span> va ٢ (ikki) → <span class="arabic">الثاني</span> — bu ikkitasi qoidadan mustasno, alohida yodlang.</p>
+</section>
+
+<section id="quiz">
+<div id="quizArea"></div>
+</section>
+
+</main>
+<footer>رحلة — Arabcha o'rganish sayohati</footer>
+
+<script>
+const numbers = [
+ {n:1, ar:'١ واحد', tr:'wāḥid', uz:"bir", root:'و ح د'},
+ {n:2, ar:'٢ اثنان', tr:'ithnān', uz:"ikki", root:'ث ن ي'},
+ {n:3, ar:'٣ ثلاثة', tr:'thalātha', uz:"uch", root:'ث ل ث'},
+ {n:4, ar:'٤ أربعة', tr:"arba'a", uz:"to'rt", root:'ر ب ع'},
+ {n:5, ar:'٥ خمسة', tr:'khamsa', uz:"besh", root:'خ م س'},
+ {n:6, ar:'٦ ستة', tr:'sitta', uz:"olti", root:'س د س'},
+ {n:7, ar:'٧ سبعة', tr:"sab'a", uz:"yetti", root:'س ب ع'},
+ {n:8, ar:'٨ ثمانية', tr:'thamāniya', uz:"sakkiz", root:'ث م ن'},
+ {n:9, ar:'٩ تسعة', tr:"tis'a", uz:"to'qqiz", root:'ت س ع'},
+ {n:10, ar:'١٠ عشرة', tr:"'ashara", uz:"o'n", root:'ع ش ر'},
+];
+const ordinals = [
+ {n:1, ar:'الأول', tr:'al-awwal', uz:'birinchi', root:null},
+ {n:2, ar:'الثاني', tr:"ath-thānī", uz:'ikkinchi', root:null},
+ {n:3, ar:'الثالث', tr:'ath-thālith', uz:'uchinchi', root:'ث ل ث'},
+ {n:4, ar:"الرابع", tr:"ar-rābi'", uz:"to'rtinchi", root:'ر ب ع'},
+ {n:5, ar:'الخامس', tr:'al-khāmis', uz:'beshinchi', root:'خ م س'},
+ {n:6, ar:'السادس', tr:'as-sādis', uz:'oltinchi', root:'س د س'},
+ {n:7, ar:'السابع', tr:"as-sābi'", uz:'yettinchi', root:'س ب ع'},
+ {n:8, ar:'الثامن', tr:'ath-thāmin', uz:'sakkizinchi', root:'ث م ن'},
+ {n:9, ar:'التاسع', tr:"at-tāsi'", uz:"to'qqizinchi", root:'ت س ع'},
+ {n:10, ar:'العاشر', tr:"al-'āshir", uz:"o'ninchi", root:'ع ش ر'},
+];
+
+function speak(text){
+  try{
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ar-SA'; u.rate = 0.85;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+function renderGrid(el, data){
+  el.innerHTML = data.map(d => `
+    <div class="card">
+      <div class="num">${d.n}</div>
+      <div class="ar arabic">${d.ar}</div>
+      <div class="translit">${d.tr}</div>
+      <div class="uz">${d.uz}</div>
+      <button class="speak" data-say="${d.ar.replace(/"/g,'&quot;')}">🔊 Eshitish</button>
+    </div>`).join('');
+  el.querySelectorAll('.speak').forEach(b=>b.addEventListener('click',()=>speak(b.dataset.say)));
+}
+renderGrid(document.getElementById('numGrid'), numbers);
+renderGrid(document.getElementById('ordGrid'), ordinals);
+
+function hl(word, root){
+  if(!root) return word;
+  const letters = root.split(' ');
+  let out = word;
+  letters.forEach(l=>{ out = out.split(l).join(`<span class="root-hl">${l}</span>`); });
+  return out;
+}
+const rootList = document.getElementById('rootList');
+rootList.innerHTML = numbers.slice(2).map((num,i)=>{
+  const ord = ordinals[i+2];
+  return `<div class="root-row">
+    <div class="pair"><span class="arabic ar">${hl(num.ar.split(' ')[1], num.root)}</span><span class="meaning">${num.uz}</span></div>
+    <div style="opacity:.5">→</div>
+    <div class="pair"><span class="arabic ar">${hl(ord.ar, ord.root)}</span><span class="meaning">${ord.uz}</span></div>
+  </div>`;
+}).join('');
+
+/* ---- Quiz ---- */
+const quizArea = document.getElementById('quizArea');
+let qList = [], qIndex = 0, score = 0;
+
+function buildQuestions(){
+  const pool = [];
+  numbers.forEach(d => pool.push({type:'card', ar:d.ar, translit:d.tr, correct:d.uz, meta:'Bu son nima?'}));
+  ordinals.forEach(d => pool.push({type:'ord', ar:d.ar, translit:d.tr, correct:d.uz, meta:'Bu tartib son nima?'}));
+  for(let i=pool.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
+  return pool.slice(0,10);
+}
+function allAnswers(){ return [...numbers.map(d=>d.uz), ...ordinals.map(d=>d.uz)]; }
+
+function startQuiz(){
+  qList = buildQuestions(); qIndex = 0; score = 0;
+  showQuestion();
+}
+function showQuestion(){
+  if(qIndex >= qList.length){ showResult(); return; }
+  const q = qList[qIndex];
+  const wrongPool = allAnswers().filter(a=>a!==q.correct);
+  const wrongs = [];
+  while(wrongs.length<3){
+    const pick = wrongPool[Math.floor(Math.random()*wrongPool.length)];
+    if(!wrongs.includes(pick)) wrongs.push(pick);
+  }
+  const opts = [...wrongs, q.correct].sort(()=>Math.random()-0.5);
+  quizArea.innerHTML = `
+    <div class="qbox">
+      <div class="qprompt"><span class="ar arabic">${q.ar}</span><span class="translit">${q.translit}</span></div>
+      <div class="qmeta">${q.meta} · <button class="speak" style="display:inline" data-say="${q.ar}">🔊</button></div>
+      <div class="opts">${opts.map(o=>`<button class="opt" data-val="${o}">${o}</button>`).join('')}</div>
+      <div class="progress">Savol ${qIndex+1} / ${qList.length} · Ball: ${score}</div>
+    </div>`;
+  quizArea.querySelector('[data-say]').addEventListener('click', e=>speak(e.target.dataset.say));
+  quizArea.querySelectorAll('.opt').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      quizArea.querySelectorAll('.opt').forEach(b=>b.disabled=true);
+      if(btn.dataset.val === q.correct){ btn.classList.add('correct'); score++; }
+      else{
+        btn.classList.add('wrong');
+        quizArea.querySelectorAll('.opt').forEach(b=>{ if(b.dataset.val===q.correct) b.classList.add('correct'); });
+      }
+      setTimeout(()=>{ qIndex++; showQuestion(); }, 900);
+    });
+  });
+}
+function showResult(){
+  const pct = Math.round((score/qList.length)*100);
+  let uzMsg, enMsg, emoji;
+  if(pct === 100){ uzMsg="Ajoyib! Barchasini bildingiz — siz haqiqiy ustozsiz!"; enMsg="Perfect! You truly mastered these."; emoji="🏆"; }
+  else if(pct >= 70){ uzMsg="Zo'r natija! Bir oz mashq — va hammasi yodingizda qoladi."; enMsg="Great job! A little more practice and it's all yours."; emoji="🌟"; }
+  else if(pct >= 40){ uzMsg="Yaxshi boshlanish! Yana bir bor ko'rib chiqing — albatta uddalaysiz."; enMsg="Good start! Review once more and you'll get there."; emoji="🌱"; }
+  else{ uzMsg="Hammasi mashqdan boshlanadi — qaytadan urinib ko'ring, siz uddalaysiz!"; enMsg="Every expert started here — try again, you've got this!"; emoji="💪"; }
+  quizArea.innerHTML = `
+    <div class="qbox result">
+      <div style="font-size:2.4rem">${emoji}</div>
+      <h2>${score} / ${qList.length} to'g'ri (${pct}%)</h2>
+      <div class="uzline">${uzMsg}</div>
+      <div style="opacity:.75;margin-top:.3rem">${enMsg}</div>
+      <button class="restart" id="restartBtn">Qayta boshlash</button>
+    </div>`;
+  document.getElementById('restartBtn').addEventListener('click', startQuiz);
+}
+
+/* ---- Tabs ---- */
+document.querySelectorAll('nav button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
+    btn.classList.add('active');
+    const sec = document.getElementById(btn.dataset.tab);
+    sec.classList.add('active');
+    if(btn.dataset.tab === 'quiz' && qList.length===0) startQuiz();
+  });
+});
+</script>
+</body>
+</html>
